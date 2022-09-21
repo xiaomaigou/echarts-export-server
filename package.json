@@ -1,0 +1,35 @@
+{
+  "name": "echarts-export-server",
+  "version": "1.0.0",
+  "description": "Apache ECharts Node.js Export Server",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "pm2 start ./src/index.js --name echarts-export-server",
+    "stop": "pm2 stop echarts-export-server",
+    "logs": "pm2 logs echarts-export-server",
+    "status": "pm2 list",
+    "show": "pm2 show echarts-export-server",
+    "delete": "pm2 delete echarts-export-server",
+    "foreground": "node ./src/index.js",
+    "dev": "nodemon ./src/index.js"
+  },
+  "dependencies": {
+    "canvas": "2.7.0",
+    "echarts": "5.3.3",
+    "pm2": "5.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "1.18.4"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "keywords": [
+    "Apache",
+    "ECharts",
+    "Export",
+    "Server"
+  ],
+  "author": "xiaomaiyun",
+  "license": "Apache-2.0"
+}
