@@ -251,5 +251,5 @@ curl -H "Content-Type: application/json" \
 
 ## License
 
-[Apache 2.0](LICENSE).
+[Apache License 2.0](LICENSE).
 
