@@ -71,7 +71,7 @@ The server accepts the following arguments:
   * `download`: Bool, set to true to send attachment headers on the response.Defaults to `false`.
   * `option`: A JSON object with options to be passed to `ECharts.setOption(..)`.
 
-It responds to `application/json`, `Mimetypes `, and URL encoded requests.
+It responds to `application/json`, `Mimetypes`, and URL encoded requests.
 
 CORS is enabled for the server.
 
@@ -118,14 +118,14 @@ Download them, and follow the above instructions for your OS.
 
 ### 中文乱码
 
-直接将Windows的msyh.ttc文件(微软雅黑)到以下目录。
+直接将Windows的msyh.ttc文件(微软雅黑)到以下目录，重启生效。
 
 ```shell
 mkdir -p /usr/share/fonts/truetype
 cp msyh.ttf /usr/share/fonts/truetype/
 ```
 
-## Server Test
+## Server Example
 
 ### Request Parameter Format
 
@@ -241,7 +241,7 @@ curl -H "Content-Type: application/json" \
 
 [Apache ECharts Server Side Rendering](https://echarts.apache.org/handbook/en/how-to/cross-platform/server/)
 
-[node-canvas](https://github.com/Automattic/node-canvas)
+[Node canvas](https://github.com/Automattic/node-canvas)
 
 [Highcharts Node.js Export Server](https://github.com/highcharts/node-export-server)
 
