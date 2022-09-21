@@ -87,9 +87,7 @@ of memory regardless of traffic, and more than one core.
 
 ### Installing Fonts
 
-Does your Linux server not have Arial or Calibri? PhantomJS uses the system installed fonts to render pages. Therefore the Highcharts Export Server requires fonts to be properly installed on the system in order to use them to render charts.
-
-Note that the default font-family config in Highcharts is `"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif"`.
+Does your Linux server not have Arial or Calibri? ECharts uses the system installed fonts to render pages. Therefore the ECharts Export Server requires fonts to be properly installed on the system in order to use them to render charts.
 
 Fonts are installed differently depending on your system. Please follow the below guides for font installation on most common systems.
 
@@ -118,7 +116,7 @@ Download them, and follow the above instructions for your OS.
 
 ### 中文乱码
 
-直接将Windows的msyh.ttc文件(微软雅黑)到以下目录，重启生效。
+直接将Windows的C:\Windows\Fonts\msyh.ttc文件(微软雅黑)拷贝到以下目录，重启生效。
 
 ```shell
 mkdir -p /usr/share/fonts/truetype
