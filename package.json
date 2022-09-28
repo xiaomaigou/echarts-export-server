@@ -1,7 +1,7 @@
 {
   "name": "echarts-export-server",
-  "version": "1.0.0",
-  "description": "Apache ECharts Node.js Export Server",
+  "version": "1.0.1",
+  "description": "Apache ECharts HTTP Export Server",
   "main": "src/index.js",
   "scripts": {
     "start": "pm2 start ./src/index.js --name echarts-export-server",
@@ -27,8 +27,11 @@
   "keywords": [
     "Apache",
     "ECharts",
+    "HTTP",
     "Export",
-    "Server"
+    "Server",
+    "Java",
+    "Visualization"
   ],
   "author": "xiaomaiyun",
   "license": "Apache License 2.0"

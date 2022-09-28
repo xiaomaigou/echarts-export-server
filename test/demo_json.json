@@ -6,6 +6,7 @@
   "download": false,
   "option": {
     "backgroundColor": "#fff",
+    "animation": false,
     "xAxis": {
       "type": "category",
       "data": [
@@ -32,7 +33,10 @@
           1330,
           1720
         ],
-        "type": "bar"
+        "type": "line",
+        "label": {
+          "show": true
+        }
       }
     ]
   }

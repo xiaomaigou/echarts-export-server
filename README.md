@@ -1,10 +1,10 @@
-# Apache ECharts Node.js Export Server
+# Apache ECharts HTTP Export Server
 
-Convert Apache ECharts charts to static image files.
+This is a Node.js-based service, and uses [node canvas](https://github.com/Automattic/node-canvas) to render [Apache ECharts](https://echarts.apache.org/) charts to images (PNG, JPG, SVG , PDF and Base64) to be sent back to the user.
 
 ## What
 
-This is a node.js application/service that converts [Apache ECharts](https://echarts.apache.org/) charts to static image files. It supports PNG, JPEG, SVG, and PDF output; and the input can be either SVG, or JSON-formatted chart options.
+The export server is a Node.js-based service, which is easy to install and integrate on any system. It accepts either JSON-formatted chart options or SVGs, together with additional resources, and uses [node canvas](https://github.com/Automattic/node-canvas) to render [Apache ECharts](https://echarts.apache.org/) charts to images (PNG, JPG, SVG , PDF and Base64) to be sent back to the user.
 
 The application can be used either as a CLI (Command Line Interface), as an HTTP server, or as a node.js module.
 
@@ -136,6 +136,7 @@ cp msyh.ttf /usr/share/fonts/truetype/
   "download": false,
   "option": {
     "backgroundColor": "#fff",
+    "animation": false,
     "xAxis": {
       "type": "category",
       "data": [
@@ -162,7 +163,10 @@ cp msyh.ttf /usr/share/fonts/truetype/
           1330,
           1720
         ],
-        "type": "bar"
+        "type": "line",
+        "label": {
+          "show": true
+        }
       }
     ]
   }
@@ -190,6 +194,7 @@ curl -H "Content-Type: application/json" \
   "download": false,
   "option": {
     "backgroundColor": "#fff",
+    "animation": false,
     "xAxis": {
       "type": "category",
       "data": [
@@ -216,11 +221,36 @@ curl -H "Content-Type: application/json" \
           1330,
           1720
         ],
-        "type": "bar"
+        "type": "line",
+        "label": {
+          "show": true
+        }
       }
     ]
   }
 }'
+```
+
+### ECharts Java Client
+
+It's recommended to create an `Option` object and its Json representation in chainable Java codes using [ECharts Java](https://github.com/ECharts-Java/ECharts-Java) . Please refer to the ECharts Java documentation for details on how to set this up.
+
+```java
+public static void main(String[] args) {
+    // All methods in ECharts Java supports method chaining
+    Bar bar = new Bar()
+        .setLegend()
+        .setTooltip("item")
+        .addXAxis(new String[] { "Matcha Latte", "Milk Tea", "Cheese Cocoa", "Walnut Brownie" })
+        .addYAxis()
+        .addSeries("2015", new Number[] { 43.3, 83.1, 86.4, 72.4 })
+        .addSeries("2016", new Number[] { 85.8, 73.4, 65.2, 53.9 })
+        .addSeries("2017", new Number[] { 93.7, 55.1, 82.5, 39.1 });
+    Engine engine = new Engine();
+	// The renderJsonOption method will return a string, which represents an Option object in JSON format.
+	String optionJsonString = engine.renderJsonOption(line);
+    System.out.println(optionJsonString);
+}
 ```
 
 ### Base64 Response Format
@@ -229,11 +259,9 @@ curl -H "Content-Type: application/json" \
 {
     "code": 200,
     "msg": "success",
-    "data": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA"
+    "data": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA..."
 }
 ```
-
-
 
 ## Reference
 
@@ -245,7 +273,7 @@ curl -H "Content-Type: application/json" \
 
 [PM2](https://www.npmjs.com/package/pm2)
 
-
+[ECharts Java](https://github.com/ECharts-Java/ECharts-Java) 
 
 ## License
 

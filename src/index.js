@@ -151,7 +151,19 @@ http.createServer(function (req, res) {
             res.setHeader('Content-Disposition', 'attachment; filename="chart.' + config.type + '"');
         }
 
-        res.write(renderChart(config));
+        let result;
+        try {
+            result = renderChart(config);
+        } catch (e) {
+            console.error("Error: Canvas rendering failed!" + e.message);
+            res.setHeader('Content-Type', 'application/json;charset=UTF-8');
+            result = JSON.stringify({
+                code: 500,
+                msg: 'Error: Canvas rendering failed! The content of the request parameter "option" may be invalid!',
+                data: config.option
+            });
+        }
+        res.write(result);
         res.end();
     })
 }).listen(port, function () {
